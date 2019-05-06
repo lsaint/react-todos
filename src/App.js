@@ -29,7 +29,6 @@ class App extends Component {
   }
 
   handleDelete = idx => e => {
-    console.log('handleDelete', idx);
     this.setState({
       rows: Object.assign(this.state.rows, {[idx]: undefined}),
     });
