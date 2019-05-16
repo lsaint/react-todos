@@ -5,13 +5,11 @@ import TodoItem from './TodoItem.js';
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
-    console.log('props TodoList', props);
     this.allTodos = this.allTodos.bind(this);
   }
 
   allTodos = () => {
-    var ids = Object.keys(this.props.todos);
-    var ret = ids.map((k, index) => (
+    var ret = Object.keys(this.props.todos).map((k, index) => (
       <TodoItem key={k} id={k} memo={this.props.todos[k]} />
     ));
     console.log('todos.', this.props.todos);

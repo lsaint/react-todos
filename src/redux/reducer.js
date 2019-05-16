@@ -1,7 +1,8 @@
 import {ADD_TODO, DEL_TODO} from './actionTypes';
 
+// state = { items: {id1: memo1, id2: memo2  ...} }
 const initState = {
-  items: {}, // items: {id1: memo1 ...}
+  items: {},
 };
 
 export default (state = initState, action) => {

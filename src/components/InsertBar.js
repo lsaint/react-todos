@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 class InsertBar extends React.Component {
   constructor(props) {
     super(props);
-    console.log('props InsertBar', props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
