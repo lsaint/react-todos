@@ -1,5 +1,5 @@
 import React from 'react';
-import {addTodo} from '../redux/actions';
+import {addTodoAsync} from '../redux/actions';
 import {connect} from 'react-redux';
 
 class InsertBar extends React.Component {
@@ -10,7 +10,7 @@ class InsertBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.addTodo(e.target[0].value);
+    this.props.addTodoAsync(e.target[0].value);
     e.target.reset();
   }
 
@@ -24,5 +24,5 @@ class InsertBar extends React.Component {
 }
 export default connect(
   null,
-  {addTodo},
+  {addTodoAsync},
 )(InsertBar);
