@@ -1,0 +1,21 @@
+
+.app {
+  margin-left: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0.1rem;
+}
+
+.floated {
+  floated: left;
+  margin-right: 0.5rem;
+}
+
+.button {
+  border-radius: 50%;
+}
+
+.memo {
+}
