@@ -9,7 +9,7 @@ function TodosPage(props) {
   return (
     <div className={styles.app}>
       <h1>Todos</h1>
-      <SummaryBar />
+      <SummaryBar count={Object.keys(props.items).length} />
       <TodoList
         delTodo={id =>
           props.dispatch({
@@ -34,7 +34,6 @@ function TodosPage(props) {
 function mapStateToProps(state) {
   // 此处的state是全局所有数据
   // todos是以'todos'这个namespace为名的model里的state
-  console.log('mapStateToProps', state);
   return state.todos;
 }
 

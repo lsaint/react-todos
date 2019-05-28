@@ -24,11 +24,10 @@ export default {
     },
 
     delTodo(state, action) {
-      console.log('delTodo action', action);
       const { id } = action.payload;
       const items = { ...state.items };
       delete items[id];
-      return { items };
+      return { id: state.id, items };
     },
   }, // end reducers
 

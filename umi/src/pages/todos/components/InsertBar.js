@@ -1,6 +1,4 @@
 import React from 'react';
-//import {addTodoAsync} from '../redux/actions';
-//import { connect } from 'react-redux';
 
 export default class InsertBar extends React.Component {
   constructor(props) {
@@ -22,7 +20,3 @@ export default class InsertBar extends React.Component {
     );
   }
 }
-//export default connect(
-//null,
-//{addTodoAsync},
-//)(InsertBar);
