@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem.js';
 
-export default function TodoList(props) {
+export default props => {
   var ret = Object.keys(props.todos).map((k, index) => (
     <TodoItem key={k} id={k} memo={props.todos[k]} delTodo={props.delTodo} />
   ));
@@ -12,4 +12,4 @@ export default function TodoList(props) {
       <ul>{ret}</ul>
     </div>
   );
-}
+};

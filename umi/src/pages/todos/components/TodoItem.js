@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TodoItem(props) {
+export default props => {
   return (
     <li>
       <div>
@@ -12,4 +12,4 @@ export default function TodoItem(props) {
       </div>
     </li>
   );
-}
+};

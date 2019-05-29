@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function InsertBar(props) {
+export default props => {
   return (
     <form
       onSubmit={e => {
@@ -12,4 +12,4 @@ export default function InsertBar(props) {
       <input type="text" placeholder="New Todo" />
     </form>
   );
-}
+};
