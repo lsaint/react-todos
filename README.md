@@ -1,6 +1,6 @@
 
 WORKFLOW
-########
+========
 
 1. implemented with React
 2. refactored with React-Redux
@@ -8,7 +8,8 @@ WORKFLOW
 4. refactored with Umi + Dva
 
 
----
+DIRECTORIES
+===========
 ```
 .
 ├── dist/                          // 默认的 build 输出目录
