@@ -7,7 +7,7 @@ import InsertBar from './components/InsertBar.js';
 
 function TodosPage(props) {
   return (
-    <div className={styles.app}>
+    <div className={styles.page}>
       <h1>Todos</h1>
       <SummaryBar count={Object.keys(props.items).length} />
       <TodoList
