@@ -2,10 +2,10 @@
 WORKFLOW
 ========
 
-1. implemented with React
-2. refactored with React-Redux
-3. refactored with Redux-Saga
-4. refactored with Umi + Dva
+1. implemented with React (./App.js)
+2. refactored with React-Redux (./index.js)
+3. refactored with Redux-Saga (./src/redux/sagas.js)
+4. refactored with Umi + Dva (./umi/)
 
 
 DIRECTORIES
