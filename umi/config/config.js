@@ -6,7 +6,7 @@ export default {
     [
       'umi-plugin-react',
       {
-        antd: false,
+        antd: true,
         dva: true,
         dynamicImport: false,
         title: 'umi',

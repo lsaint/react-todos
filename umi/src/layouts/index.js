@@ -1,20 +1,28 @@
-import styles from './index.css';
+import { Menu, Icon } from 'antd';
+import Link from 'umi/link';
+import withRouter from 'umi/withRouter';
 
-function BasicLayout(props) {
+function layout({ children, location }) {
   return (
-    <div className={styles.normal}>
-      <h1 className={styles.title}>Another day, Another dollor.</h1>
-      <ul className={styles.nav}>
-        <li>
-          <a href="/"> index</a>
-        </li>
-        <li>
-          <a href="/todos"> Todos</a>
-        </li>
-      </ul>
-      {props.children}
+    <div>
+      <Menu selectedKeys={[location.pathname]} mode="horizontal" theme="dark">
+        <Menu.Item key="/">
+          <Link to="/">
+            <Icon type="home" />
+            Home
+          </Link>
+        </Menu.Item>
+
+        <Menu.Item key="/todos">
+          <Link to="/todos">
+            <Icon type="bars" />
+            Todos
+          </Link>
+        </Menu.Item>
+      </Menu>
+      {children}
     </div>
   );
 }
 
-export default BasicLayout;
+export default withRouter(layout);
