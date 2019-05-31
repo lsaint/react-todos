@@ -1,7 +1,8 @@
 .page {
-  margin: 4rem 90rem 4rem 4rem;
+  margin: 4rem;
   /*background-color: grey;*/
   text-align: left;
+  width: 25rem;
 }
 
 .page h1 {
