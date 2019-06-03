@@ -32,7 +32,6 @@ export default props => {
                   icon="close"
                   size="small"
                   shape="circle"
-                  border="none"
                   className={styles.todoClose}
                   onClick={e => props.delTodo(item[0])}
                 />,
