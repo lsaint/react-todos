@@ -5,7 +5,7 @@ export default {
 
   // state = { items: {id1: memo1, id2: memo2  ...} }
   state: {
-    id: 0,
+    id: 10,
     items: {},
   },
 

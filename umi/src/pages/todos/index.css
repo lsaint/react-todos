@@ -2,7 +2,7 @@
   margin: 4rem;
   /*background-color: grey;*/
   text-align: left;
-  width: 25rem;
+  /*width: 25rem;*/
 }
 
 .page h1 {
@@ -10,8 +10,8 @@
 }
 
 .todoList {
-  list-style-type: none;
-  padding-left: 0.1rem;
+  /*list-style-type: none;*/
+  /*padding-left: 0.1rem;*/
   margin: 0;
   padding: 0;
 }
@@ -21,15 +21,12 @@
 }
 
 .todoCheck {
-  margin-right: 0.5rem;
+  margin-right: 0.5rem !important; /* add !important to override antd default style */
 }
 
 .todoClose {
-  float: right;
-  border-radius: 50%;
-  font-size: 1px;
-  border: none;
-  background-color: grey;
+  border: none !important;
+  opacity: 0.5;
 }
 
 .todoInsert {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col } from 'antd';
 import { connect } from 'dva';
 import styles from './index.css';
 import SummaryBar from './components/SummaryBar.js';
@@ -8,25 +9,29 @@ import InsertBar from './components/InsertBar.js';
 function TodosPage(props) {
   return (
     <div className={styles.page}>
-      <h1>Todos</h1>
-      <SummaryBar count={Object.keys(props.items).length} />
-      <TodoList
-        delTodo={id =>
-          props.dispatch({
-            type: 'todos/delTodo',
-            payload: { id },
-          })
-        }
-        todos={props.items}
-      />
-      <InsertBar
-        addTodoAsync={memo =>
-          props.dispatch({
-            type: 'todos/addTodoAsync',
-            payload: { memo },
-          })
-        }
-      />
+      <Row>
+        <Col span={8}>
+          <h1>Todos</h1>
+          <SummaryBar count={Object.keys(props.items).length} />
+          <TodoList
+            delTodo={id =>
+              props.dispatch({
+                type: 'todos/delTodo',
+                payload: { id },
+              })
+            }
+            todos={props.items}
+          />
+          <InsertBar
+            addTodoAsync={memo =>
+              props.dispatch({
+                type: 'todos/addTodoAsync',
+                payload: { memo },
+              })
+            }
+          />
+        </Col>
+      </Row>
     </div>
   );
 }
