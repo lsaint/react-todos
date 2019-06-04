@@ -40,7 +40,7 @@ function layout({ children, location }) {
 
       <Content>{children}</Content>
 
-      <Footer>Footer</Footer>
+      <Footer className={styles.footer}>Created by Ethan ©2019</Footer>
     </Layout>
   );
 }

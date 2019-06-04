@@ -21,6 +21,8 @@ export default props => {
         dataSource={data}
         split={false}
         size="small"
+        //http://opentutorial.info/dva/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/dva-loading-plugin/
+        loading={props.loading.effects['todos/addTodoAsync']}
         locale={{
           emptyText: <span>来搞点事情吧</span>,
         }}
