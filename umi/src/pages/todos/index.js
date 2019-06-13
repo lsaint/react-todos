@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Button } from 'antd';
 import { connect } from 'dva';
 import styles from './index.css';
 import SummaryBar from './components/SummaryBar.js';
@@ -31,6 +31,14 @@ function TodosPage({ dispatch, todos, loading }) {
               })
             }
           />
+        </Col>
+
+        <Col span={2}>
+            <Button type="primary"
+              onClick={e => dispatch({
+                type: "todos/addRemoteTodos"
+              })}
+        >Get Remote Items</Button>
         </Col>
       </Row>
     </div>

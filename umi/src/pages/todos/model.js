@@ -1,4 +1,5 @@
 import { delay } from 'dva/saga';
+import {getRemoteItems} from "@/services/remoteItems"
 
 export default {
   namespace: 'todos',
@@ -39,5 +40,17 @@ export default {
         payload,
       });
     },
+
+    *addRemoteTodos({}, {call, put}) {
+      const {status, data} = yield call(getRemoteItems)
+      console.log("resp", status, data)
+      if (status === 200) {
+        let {name} = data[Math.floor(Math.random() * data.length)];
+        yield put({
+          type: 'addTodo',
+          payload: {memo: name},
+        });
+      }
+    }
   },
 };
