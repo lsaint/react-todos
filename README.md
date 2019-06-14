@@ -7,6 +7,7 @@ WORKFLOW
 3. refactored with Redux-Saga (./src/redux/sagas.js)
 4. refactored with Umi + Dva (./umi/)
 5. refactored with antd
+6. use axios to get mock data from remote address
 
 
 DIRECTORIES
