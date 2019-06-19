@@ -2,9 +2,9 @@
 WORKFLOW
 ========
 
-1. implemented with React (./App.js)
-2. refactored with React-Redux (./index.js)
-3. refactored with Redux-Saga (./src/redux/sagas.js)
+1. implemented with React (legacy/src/App.js)
+2. refactored with React-Redux (legacy/src/index.js)
+3. refactored with Redux-Saga (.legacy/src/redux/sagas.js)
 4. refactored with Umi + Dva (./umi/)
 5. refactored with antd
 6. use axios to get mock data from remote address
