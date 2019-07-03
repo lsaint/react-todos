@@ -1,5 +1,5 @@
 import { delay } from 'dva/saga';
-import {getRemoteItems} from "@/services/remoteItems"
+import {getRemoteItems, getUser} from "@/services/remoteItems"
 
 export default {
   namespace: 'todos',
@@ -51,6 +51,12 @@ export default {
           payload: {memo: name},
         });
       }
-    }
+    },
+
+    *getMockData({}, {call}) {
+      const {status, data} = yield call(getUser)
+      console.log(status, data)
+    },
+
   },
 };
