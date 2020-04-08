@@ -6,5 +6,5 @@ export async function getRemoteItems() {
 }
 
 export async function getUser() {
-  return await requests.get("http://localhost:8000/api/user/1");
+  return await requests.get(process.env.API_URL + '/api/user/1');
 }
