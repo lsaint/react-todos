@@ -1,5 +1,6 @@
 import React from 'react';
-import { Form, Input } from 'antd';
+import { Input } from 'antd';
+import { Form } from '@ant-design/compatible';
 import styles from '../index.css';
 
 class InsertBar extends React.Component {

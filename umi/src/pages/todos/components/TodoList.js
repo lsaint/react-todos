@@ -23,7 +23,7 @@ export default props => {
         size="small"
         //http://opentutorial.info/dva/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/dva-loading-plugin/
         //loading={props.loading.effects['todos/addTodoAsync']}    此为只在addTodoAsync这个接口阻塞时显示loadding
-        loading={props.loading.models['todos']}                   // 在整个todos model里的接口阻塞时显示loadding
+        loading={props.loading.models['todos']} // 在整个todos model里的接口阻塞时显示loadding
         locale={{
           emptyText: <span>来搞点事情吧</span>,
         }}

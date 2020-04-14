@@ -34,25 +34,30 @@ function TodosPage({ dispatch, todos, loading }) {
         </Col>
 
         <Col span={2}>
-            <Button type="primary"
-              onClick={e => dispatch({
-                type: "todos/addRemoteTodos"
-              })}>
-              Get Remote Items
-            </Button>
+          <Button
+            type="primary"
+            onClick={e =>
+              dispatch({
+                type: 'todos/addRemoteTodos',
+              })
+            }
+          >
+            Get Remote Items
+          </Button>
         </Col>
 
         <Col span={2}>
-            <Button type="dashed"
-              onClick={e => dispatch({
-                type: "todos/getMockData"
-              })}>
-              Print Mock Data
-            </Button>
+          <Button
+            type="dashed"
+            onClick={e =>
+              dispatch({
+                type: 'todos/getMockData',
+              })
+            }
+          >
+            Print Mock Data
+          </Button>
         </Col>
-
-
-
       </Row>
     </div>
   );

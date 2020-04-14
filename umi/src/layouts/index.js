@@ -1,6 +1,7 @@
-import { Menu, Icon, Layout } from 'antd';
-import Link from 'umi/link';
-import withRouter from 'umi/withRouter';
+import { Menu, Layout } from 'antd';
+import { Icon } from '@ant-design/compatible';
+import { Link } from 'umi';
+import { withRouter } from 'umi';
 import styles from './index.css';
 
 const { Header, Footer, Content } = Layout;
