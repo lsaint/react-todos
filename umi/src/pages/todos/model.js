@@ -1,5 +1,7 @@
-import { delay } from 'dva/saga';
-import {getRemoteItems, getUser} from "@/services/remoteItems"
+import { saga } from 'dva';
+import { getRemoteItems, getUser } from '@/services/remoteItems';
+
+const { delay } = saga;
 
 export default {
   namespace: 'todos',
@@ -41,22 +43,21 @@ export default {
       });
     },
 
-    *addRemoteTodos({}, {call, put}) {
-      const {status, data} = yield call(getRemoteItems)
-      console.log("resp", status, data)
+    *addRemoteTodos({}, { call, put }) {
+      const { status, data } = yield call(getRemoteItems);
+      console.log('resp', status, data);
       if (status === 200) {
-        let {name} = data[Math.floor(Math.random() * data.length)];
+        let { name } = data[Math.floor(Math.random() * data.length)];
         yield put({
           type: 'addTodo',
-          payload: {memo: name},
+          payload: { memo: name },
         });
       }
     },
 
-    *getMockData({}, {call}) {
-      const {status, data} = yield call(getUser)
-      console.log(status, data)
+    *getMockData({}, { call }) {
+      const { status, data } = yield call(getUser);
+      console.log(status, data);
     },
-
   },
 };

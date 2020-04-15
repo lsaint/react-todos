@@ -1,5 +1,5 @@
 import { Menu, Layout } from 'antd';
-import { Icon } from '@ant-design/compatible';
+import { HomeOutlined, BarsOutlined, SettingOutlined } from '@ant-design/icons';
 import { Link } from 'umi';
 import { withRouter } from 'umi';
 import styles from './index.css';
@@ -20,20 +20,20 @@ function layout({ children, location }) {
         >
           <Menu.Item key="/">
             <Link to="/">
-              <Icon type="home" />
+              <HomeOutlined />
               Home
             </Link>
           </Menu.Item>
 
           <Menu.Item key="/todos">
             <Link to="/todos">
-              <Icon type="bars" />
+              <BarsOutlined />
               Todos
             </Link>
           </Menu.Item>
 
           <Menu.Item>
-            <Icon type="setting" />
+            <SettingOutlined />
             about
           </Menu.Item>
         </Menu>

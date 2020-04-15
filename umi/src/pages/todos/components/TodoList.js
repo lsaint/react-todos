@@ -1,5 +1,7 @@
 import React from 'react';
-import { List, Checkbox, Button } from 'antd';
+import { List, Checkbox } from 'antd';
+import { CloseCircleOutlined } from '@ant-design/icons';
+
 import styles from '../index.css';
 
 export default props => {
@@ -31,10 +33,8 @@ export default props => {
           return (
             <List.Item
               actions={[
-                <Button
-                  icon="close"
+                <CloseCircleOutlined
                   size="small"
-                  shape="circle"
                   className={styles.todoClose}
                   onClick={e => props.delTodo(item[0])}
                 />,
