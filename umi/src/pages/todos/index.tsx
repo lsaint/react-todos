@@ -2,9 +2,9 @@ import React from 'react';
 import { Row, Col, Button } from 'antd';
 import { connect } from 'dva';
 import styles from './index.css';
-import SummaryBar from './components/SummaryBar.js';
-import TodoList from './components/TodoList.js';
-import InsertBar from './components/InsertBar.js';
+import SummaryBar from './components/SummaryBar';
+import TodoList from './components/TodoList';
+import InsertBar from './components/InsertBar';
 
 function TodosPage({ dispatch, todos, loading }) {
   return (

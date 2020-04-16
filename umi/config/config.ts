@@ -19,7 +19,7 @@ export default {
   routes: [
     {
       path: '/',
-      component: '../layouts/index.js',
+      component: '../layouts/index.tsx',
       routes: [{ path: '/', component: 'index' }, { path: '/todos', component: 'todos' }],
     },
   ],

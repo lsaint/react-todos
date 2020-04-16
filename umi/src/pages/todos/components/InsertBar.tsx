@@ -2,7 +2,7 @@ import React from 'react';
 import { Input, Form } from 'antd';
 import styles from '../index.css';
 
-class InsertBar extends React.Component {
+class InsertBar extends React.Component<any, any> {
   formRef = React.createRef();
 
   onFinish = ({ memo }) => {
