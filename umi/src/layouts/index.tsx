@@ -7,7 +7,7 @@ import styles from './index.css';
 
 const { Header, Footer, Content } = Layout;
 
-function layout({ children, location }) {
+function layout({ children, location }: any) {
   return (
     <Layout>
       <Header className={styles.header}>
@@ -40,7 +40,7 @@ function layout({ children, location }) {
         </Menu>
       </Header>
 
-      <Content>{children}</Content>
+      <Content className={styles.content}>{children}</Content>
 
       <Footer className={styles.footer}>Created by Ethan ©2019</Footer>
     </Layout>

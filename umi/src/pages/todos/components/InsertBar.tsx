@@ -3,9 +3,9 @@ import { Input, Form } from 'antd';
 import styles from '../index.css';
 
 class InsertBar extends React.Component<any, any> {
-  formRef = React.createRef();
+  formRef = React.createRef<any>();
 
-  onFinish = ({ memo }) => {
+  onFinish = ({ memo }: { memo: string }) => {
     this.props.addTodoAsync(memo);
     //this.props.form.resetFields();
     this.formRef.current.resetFields();

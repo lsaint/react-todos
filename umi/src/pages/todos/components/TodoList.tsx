@@ -4,7 +4,7 @@ import { CloseCircleOutlined } from '@ant-design/icons';
 
 import styles from '../index.css';
 
-export default props => {
+export default (props: any) => {
   //let ret = Object.keys(props.todos).map((k, index) => (
   //<TodoItem key={k} id={k} memo={props.todos[k]} delTodo={props.delTodo} />
   //));
@@ -16,7 +16,7 @@ export default props => {
   //</div>
   //);
 
-  let data = Object.keys(props.todos).map((k, index) => [k, props.todos[k]]);
+  let data = Object.keys(props.todos).map((k, _) => [k, props.todos[k]]);
   return (
     <div>
       <List
@@ -34,9 +34,8 @@ export default props => {
             <List.Item
               actions={[
                 <CloseCircleOutlined
-                  size="small"
                   className={styles.todoClose}
-                  onClick={e => props.delTodo(item[0])}
+                  onClick={_ => props.delTodo(item[0])}
                 />,
               ]}
             >

@@ -32,8 +32,9 @@ function TodosPage({ dispatch, todos, loading }) {
             }
           />
         </Col>
-
-        <Col span={2}>
+      </Row>
+      <Row>
+        <Col span={4}>
           <Button
             type="primary"
             onClick={e =>
@@ -46,7 +47,7 @@ function TodosPage({ dispatch, todos, loading }) {
           </Button>
         </Col>
 
-        <Col span={2}>
+        <Col span={4}>
           <Button
             type="dashed"
             onClick={e =>

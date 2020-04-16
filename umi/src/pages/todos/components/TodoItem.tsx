@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../index.css';
 
-export default props => {
+export default (props: any) => {
   return (
     <li className={styles.todoItem}>
       <input className={styles.todoCheck} type="checkbox" />
