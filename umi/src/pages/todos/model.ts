@@ -1,10 +1,6 @@
 // https://dvajs.com/guide/introduce-class.html#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5
 import { getRemoteItems, getUser } from '@/services/remoteItems';
-
-const delay = (ms: number) =>
-  new Promise(resolve => {
-    setTimeout(resolve, ms);
-  });
+import { delay } from '@/utils';
 
 interface State {
   id: number;
