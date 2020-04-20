@@ -4,7 +4,7 @@ import { CloseCircleOutlined } from '@ant-design/icons';
 
 import styles from '../index.css';
 
-export default (props: any) => {
+export default (props: { loading: any; todos: { [key: number]: string }; delTodo: Function }) => {
   //let ret = Object.keys(props.todos).map((k, index) => (
   //<TodoItem key={k} id={k} memo={props.todos[k]} delTodo={props.delTodo} />
   //));
@@ -16,7 +16,7 @@ export default (props: any) => {
   //</div>
   //);
 
-  let data = Object.keys(props.todos).map((k, _) => [k, props.todos[k]]);
+  let data = Object.keys(props.todos).map((k, _) => [k, props.todos[Number(k)]]);
   return (
     <div>
       <List

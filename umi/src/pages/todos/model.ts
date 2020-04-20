@@ -1,8 +1,9 @@
 // https://dvajs.com/guide/introduce-class.html#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5
+import { Effect, Reducer } from 'umi';
 import { getRemoteItems, getUser } from '@/services/remoteItems';
 import { delay } from '@/utils';
 
-interface State {
+interface TodosState {
   id: number;
   items: { [key: number]: string };
   // In javascript the keys of object can only be strings
@@ -12,7 +13,26 @@ interface State {
   // but in runtime the keys in the object will be strings.
 }
 
-export default {
+interface TodosModelType {
+  namespace: 'todos';
+  state: TodosState;
+  reducers: {
+    addTodo: Reducer<TodosState>;
+    delTodo: Reducer<TodosState>;
+  };
+  effects: {
+    addTodoAsync: Effect;
+    addRemoteTodos: Effect;
+    getMockData: Effect;
+  };
+}
+
+interface TodosAction<T> {
+  type: string;
+  payload: T;
+}
+
+const TodosModel: TodosModelType = {
   namespace: 'todos',
 
   // state = { items: {id1: memo1, id2: memo2  ...} }
@@ -24,7 +44,7 @@ export default {
 
   // type Reducer<S, A> = (state: S, action: A) => S
   reducers: {
-    addTodo(state: State, action: { type: string; payload: { memo: string } }) {
+    addTodo(state: TodosState, action: TodosAction<{ memo: string }>) {
       let { id } = state;
       id++;
       const { memo } = action.payload;
@@ -37,7 +57,7 @@ export default {
       };
     },
 
-    delTodo(state: State, action: { type: string; payload: { id: number } }) {
+    delTodo(state: TodosState, action: TodosAction<{ id: number }>) {
       const { id } = action.payload;
       const items = { ...state.items };
       delete items[id];
@@ -46,7 +66,7 @@ export default {
   }, // end reducers
 
   effects: {
-    *addTodoAsync({ payload }: { type: string; payload: { id: number } }, { put }: any) {
+    *addTodoAsync({ payload }: TodosAction<{ id: number }>, { put }: any) {
       yield delay(1000);
       yield put({
         type: 'addTodo',
@@ -72,3 +92,5 @@ export default {
     },
   },
 };
+
+export default TodosModel;
