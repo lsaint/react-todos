@@ -1,4 +1,3 @@
-import React from 'react';
 import { Row, Col, Button } from 'antd';
 import { connect } from 'dva';
 import styles from './index.css';
@@ -37,7 +36,7 @@ function TodosPage({ dispatch, todos, loading }: any) {
         <Col span={4}>
           <Button
             type="primary"
-            onClick={_ =>
+            onClick={(_) =>
               dispatch({
                 type: 'todos/addRemoteTodos',
               })
@@ -50,7 +49,7 @@ function TodosPage({ dispatch, todos, loading }: any) {
         <Col span={4}>
           <Button
             type="dashed"
-            onClick={_ =>
+            onClick={(_) =>
               dispatch({
                 type: 'todos/getMockData',
               })

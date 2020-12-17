@@ -1,4 +1,3 @@
-import React from 'react';
 import { Menu, Layout } from 'antd';
 import { HomeOutlined, BarsOutlined, SettingOutlined } from '@ant-design/icons';
 import { Link } from 'umi';

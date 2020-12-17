@@ -1,4 +1,3 @@
-import React from 'react';
 import { List, Checkbox } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
 
@@ -29,13 +28,13 @@ export default (props: { loading: any; todos: { [key: number]: string }; delTodo
         locale={{
           emptyText: <span>来搞点事情吧</span>,
         }}
-        renderItem={item => {
+        renderItem={(item) => {
           return (
             <List.Item
               actions={[
                 <CloseCircleOutlined
                   className={styles.todoClose}
-                  onClick={_ => props.delTodo(item[0])}
+                  onClick={(_) => props.delTodo(item[0])}
                 />,
               ]}
             >

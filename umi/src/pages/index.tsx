@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './index.css';
 
 export default function() {
@@ -6,7 +5,7 @@ export default function() {
     <div className={styles.normal}>
       <div className={styles.welcome} />
       <ul className={styles.list}>
-        <li>Hello React</li>
+        <li>Hello Ethan</li>
       </ul>
     </div>
   );
