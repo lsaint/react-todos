@@ -65,6 +65,8 @@ const TodosModel: TodosModelType = {
     },
   }, // end reducers
 
+  // yield call 调用异步方法
+  // put 调用同步方法
   effects: {
     *addTodoAsync({ payload }: TodosAction<{ id: number }>, { put }: any) {
       yield delay(1000);

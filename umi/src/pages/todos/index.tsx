@@ -3,7 +3,7 @@ import { connect } from 'dva';
 import styles from './index.css';
 import SummaryBar from './components/SummaryBar';
 import TodoList from './components/TodoList';
-import InsertBar from './components/InsertBar';
+import { InsertBar } from './components/InsertBar';
 
 function TodosPage({ dispatch, todos, loading }: any) {
   return (
