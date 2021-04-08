@@ -15,12 +15,11 @@ export default {
     //'process.env.API_URL': process.env.API_URL,
   },
 
-  // 配置式路由，页面已按约定式，写上去是因为umi ui不支持约定式路由
-  routes: [
-    {
-      path: '/',
-      component: '../layouts/index.tsx',
-      routes: [{ path: '/', component: 'index' }, { path: '/todos', component: 'todos' }],
-    },
-  ],
+  //routes: [
+  //{
+  //path: '/',
+  //component: '../layouts/index.tsx',
+  //routes: [{ path: '/', component: 'index' }, { path: '/todos', component: 'todos' }],
+  //},
+  //],
 };
