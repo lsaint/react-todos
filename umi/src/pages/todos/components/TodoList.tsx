@@ -26,7 +26,7 @@ export default (props: { loading: any; todos: { [key: number]: string }; delTodo
         //loading={props.loading.effects['todos/addTodoAsync']}    此为只在addTodoAsync这个接口阻塞时显示loadding
         loading={props.loading.models['todos']} // 在整个todos model里的接口阻塞时显示loadding
         locale={{
-          emptyText: <span>来搞点事情吧</span>,
+          emptyText: <span>nothing to do</span>,
         }}
         renderItem={(item) => {
           return (

@@ -32,9 +32,11 @@ function layout({ children, location }: any) {
             </Link>
           </Menu.Item>
 
-          <Menu.Item>
-            <SettingOutlined />
-            about
+          <Menu.Item key="/crud">
+            <Link to="/crud">
+              <SettingOutlined />
+              CRUD
+            </Link>
           </Menu.Item>
         </Menu>
       </Header>
