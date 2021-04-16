@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './index.css';
 import { useWebSocket } from 'ahooks';
 import { Row, Col, Button, Input } from 'antd';
@@ -14,17 +14,26 @@ enum ReadyState {
 
 export default function WebsocketPage() {
   const [addr, setAddr] = useState('wss://echo.websocket.org');
+  const [output, setOutput] = useState<string[]>([]);
   const { readyState, sendMessage, latestMessage, disconnect, connect } = useWebSocket(addr, {
     manual: true,
   });
 
-  const preOutput = useRef([]);
-  (preOutput.current as string[]) = useMemo(() => {
-    console.log(preOutput.current);
-    if (!latestMessage) return preOutput.current;
-    return [...preOutput.current, latestMessage.data + '\n'];
+  // ref 和 state 的主要区别是：
+  // 更新 state 会触发组件重新渲染，更新 ref 则不会
+  // state 更新是异步的（state 会在重新渲染之后更新），ref 更新是同步的（ref 立即更新）
+
+  // https://www.jianshu.com/p/94ace269414d
+  // useMemo 是在渲染过程中进行, 在内部执行setState会死循环
+  // useEffect 是在渲染结束后进行
+
+  useEffect(() => {
+    console.log('useEffect');
+    if (!latestMessage) return;
+    setOutput([...output, latestMessage.data + '\n']);
   }, [latestMessage]);
 
+  console.log('render');
   return (
     <Col offset={6} span={12}>
       <div>
@@ -36,7 +45,7 @@ export default function WebsocketPage() {
         </Row>
 
         <Row className={styles.gap}>
-          <TextArea rows={5} placeholder="some output" value={''.concat(...preOutput.current)} />
+          <TextArea rows={5} placeholder="some output" value={''.concat(...output)} />
         </Row>
 
         <Row className={styles.gap}>
@@ -81,7 +90,7 @@ export default function WebsocketPage() {
               type="primary"
               block
               onClick={() => {
-                preOutput.current = [];
+                setOutput([]);
               }}
             >
               clear
