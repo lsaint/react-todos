@@ -1,11 +1,21 @@
 import { Row, Col, Button } from 'antd';
-import { connect } from 'dva';
+import { useDispatch, useSelector } from 'dva';
 import styles from './index.css';
 import SummaryBar from './components/SummaryBar';
 import TodoList from './components/TodoList';
 import { InsertBar } from './components/InsertBar';
 
-function TodosPage({ dispatch, todos, loading }: any) {
+const TodosPage = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state: any) => state);
+  console.log('state:', state);
+
+  const { loading: loadingObj, todos } = state;
+
+  // 只在addTodoAsync这个接口阻塞时显示loading
+  // getRemoteItems的时候不显示loading
+  const loading = loadingObj.effects['todos/addTodoAsync'];
+
   return (
     <div className={styles.page}>
       <Row>
@@ -61,15 +71,5 @@ function TodosPage({ dispatch, todos, loading }: any) {
       </Row>
     </div>
   );
-}
-
-function mapStateToProps({ todos, loading }: any) {
-  // 此处的state是全局所有数据
-  // todos是以'todos'这个namespace为名的model里的state
-  //return state.todos;
-  return { todos, loading };
-}
-
-//connect方法可以省略mapStateToProps参数
-//那样的话，UI 组件就不会订阅Store，就是说 Store 的更新不会引起 UI 组件的更新。
-export default connect(mapStateToProps)(TodosPage);
+};
+export default TodosPage;

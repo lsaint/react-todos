@@ -3,7 +3,7 @@ import { Effect, Reducer } from 'umi';
 import { getRemoteItems, getUser } from '@/services/remoteItems';
 import { delay } from '@/utils';
 
-interface TodosState {
+export interface TodosState {
   id: number;
   items: { [key: number]: string };
   // In javascript the keys of object can only be strings
