@@ -1,4 +1,13 @@
 // https://dvajs.com/guide/introduce-class.html#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5
+//
+// dva的数据流向(addRemoteTodos)：
+// View层dispatch操作action –>
+// 触发models层effect中相应方法 –>
+// 触发call发起services层请求，获取接口数据 –>
+// 触发put发起reducer处理相应的action更新数据 –>
+// 更新model层中state –>
+// 触发view层的render方法进行重新渲染 –>
+// 页面更新
 import { Effect, Reducer } from 'umi';
 import { getRemoteItems, getUser } from '@/services/remoteItems';
 import { delay } from '@/utils';
@@ -66,7 +75,7 @@ const TodosModel: TodosModelType = {
   }, // end reducers
 
   // yield call 调用异步方法
-  // put 调用同步方法
+  // put 调用同步方法, 必须触发Action
   effects: {
     *addTodoAsync({ payload }: TodosAction<{ id: number }>, { put }: any) {
       yield delay(1000);

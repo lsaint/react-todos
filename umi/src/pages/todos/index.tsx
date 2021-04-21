@@ -4,6 +4,8 @@ import styles from './index.css';
 import SummaryBar from './components/SummaryBar';
 import TodoList from './components/TodoList';
 import { InsertBar } from './components/InsertBar';
+import { useRequest } from 'ahooks';
+import { getRemoteItems } from '@/services/remoteItems';
 
 const TodosPage = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,10 @@ const TodosPage = () => {
   // 只在addTodoAsync这个接口阻塞时显示loading
   // getRemoteItems的时候不显示loading
   const loading = loadingObj.effects['todos/addTodoAsync'];
+
+  const { data, error, run } = useRequest(getRemoteItems, { manual: true });
+  // 手动调用run触发刷新后打印data数据
+  console.log('data =', data?.data, 'error =', error);
 
   return (
     <div className={styles.page}>
@@ -43,7 +49,7 @@ const TodosPage = () => {
         </Col>
       </Row>
       <Row>
-        <Col span={4}>
+        <Col span={3}>
           <Button
             type="primary"
             onClick={(_) =>
@@ -56,16 +62,27 @@ const TodosPage = () => {
           </Button>
         </Col>
 
-        <Col span={4}>
+        <Col span={3}>
           <Button
             type="dashed"
-            onClick={(_) =>
+            onClick={() => {
               dispatch({
                 type: 'todos/getMockData',
-              })
-            }
+              });
+            }}
           >
             Print Mock Data
+          </Button>
+        </Col>
+
+        <Col span={3}>
+          <Button
+            type="dashed"
+            onClick={() => {
+              run();
+            }}
+          >
+            Run useRequest
           </Button>
         </Col>
       </Row>
