@@ -8,7 +8,7 @@
 // 更新model层中state –>
 // 触发view层的render方法进行重新渲染 –>
 // 页面更新
-import { Effect, Reducer } from 'umi';
+import { Effect, ImmerReducer } from 'umi';
 import { getRemoteItems, getUser } from '@/services/remoteItems';
 import { delay } from '@/utils';
 
@@ -26,19 +26,14 @@ interface TodosModelType {
   namespace: 'todos';
   state: TodosState;
   reducers: {
-    addTodo: Reducer<TodosState>;
-    delTodo: Reducer<TodosState>;
+    addTodo: ImmerReducer<TodosState>;
+    delTodo: ImmerReducer<TodosState>;
   };
   effects: {
     addTodoAsync: Effect;
     addRemoteTodos: Effect;
     getMockData: Effect;
   };
-}
-
-interface TodosAction<T> {
-  type: string;
-  payload: T;
 }
 
 const TodosModel: TodosModelType = {
@@ -53,7 +48,7 @@ const TodosModel: TodosModelType = {
 
   // type Reducer<S, A> = (state: S, action: A) => S
   reducers: {
-    addTodo(state: TodosState, action: TodosAction<{ memo: string }>) {
+    addTodo(state, action) {
       let { id } = state;
       id++;
       const { memo } = action.payload;
@@ -66,7 +61,7 @@ const TodosModel: TodosModelType = {
       };
     },
 
-    delTodo(state: TodosState, action: TodosAction<{ id: number }>) {
+    delTodo(state, action) {
       const { id } = action.payload;
       const items = { ...state.items };
       delete items[id];
@@ -74,10 +69,10 @@ const TodosModel: TodosModelType = {
     },
   }, // end reducers
 
-  // yield call 调用异步方法
-  // put 调用同步方法, 必须触发Action
+  // call 调用异步方法
+  // put 触发Action
   effects: {
-    *addTodoAsync({ payload }: TodosAction<{ id: number }>, { put }: any) {
+    *addTodoAsync({ payload }, { put }) {
       yield delay(1000);
       yield put({
         type: 'addTodo',

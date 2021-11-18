@@ -1,5 +1,6 @@
 // ref: https://umijs.org/config/
 export default {
+  title: 'todos',
   antd: {},
   dva: { hmr: true },
   dynamicImport: {},
